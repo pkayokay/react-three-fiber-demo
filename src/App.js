@@ -16,7 +16,7 @@ function Box() {
 function App() {
   return (
     <>
-      <Canvas>
+      <Canvas colorManagement camera={{ position: [-5,2,10], fov: 60 }}>
         <ambientLight intensity={1} />
         <Box />
       </Canvas>
