@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { softShadows, MeshWobbleMaterial } from '@react-three/drei';
+import { softShadows, MeshWobbleMaterial, OrbitControls } from '@react-three/drei';
 
 softShadows();
 
@@ -53,6 +53,7 @@ function App() {
         <SpinningBox args={[1, 2, 3]} position={[5, 3, 1]} color="#00b485" speed={1} factor={0.5} />
         <SpinningBox args={[2, 2, 4]} position={[4, 1, -2]} color="#2e3042" speed={1} factor={0.5} />
         <SpinningBox args={[3, 2, 2]} position={[6, 0, 3]} color="#bdbdbd" speed={1} factor={0.5} />
+        <OrbitControls />
       </Canvas>
     </>
   );
