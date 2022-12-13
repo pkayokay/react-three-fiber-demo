@@ -1,5 +1,8 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { softShadows } from '@react-three/drei';
+
+softShadows();
 
 function SpinningBox({ args, color, position }) {
   const mesh = useRef(null);
@@ -19,7 +22,7 @@ function App() {
       <Canvas
         shadows
         colormanagement="true"
-        camera={{ position: [-5,0,10], fov: 50 }}
+        camera={{ position: [-5,0,10], fov: 60 }}
       >
         <ambientLight intensity={0.3} />
         <directionalLight
@@ -38,7 +41,7 @@ function App() {
         <pointLight position={[0, -10, 0]} intensity={1.5} />
 
         <group>
-          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
+          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>
             <planeBufferGeometry attach="geometry" args={[100,100]} />
             <shadowMaterial attach="material" opacity={0.3}/>
           </mesh>
