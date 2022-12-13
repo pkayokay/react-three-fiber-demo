@@ -7,7 +7,7 @@ function Box() {
   return (
     <mesh ref={mesh}>
       <boxBufferGeometry attach="geometry" args={[2,2,2]} />
-      <meshStandardMaterial attach="material" />
+      <meshStandardMaterial attach="material" color="#ef4649" />
     </mesh>
   )
 }
@@ -17,6 +17,7 @@ function App() {
   return (
     <>
       <Canvas>
+        <ambientLight intensity={1} />
         <Box />
       </Canvas>
     </>
