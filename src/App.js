@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 
-function Box() {
+function SpinningBox() {
   const mesh = useRef(null);
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
   return (
@@ -18,7 +18,9 @@ function App() {
     <>
       <Canvas colorManagement camera={{ position: [-5,2,10], fov: 60 }}>
         <ambientLight intensity={1} />
-        <Box />
+        <SpinningBox />
+        <SpinningBox />
+        <SpinningBox />
       </Canvas>
     </>
   );
