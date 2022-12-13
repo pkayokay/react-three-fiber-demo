@@ -19,3 +19,9 @@ code {
 body {
   background-color: #f2f2f2;
 }
+
+#root {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+}
