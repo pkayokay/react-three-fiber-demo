@@ -21,6 +21,20 @@ function App() {
         <directionalLight position={[10, 1, 1]} intensity={1} shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-camera-far={50} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
         <pointLight position={[-10, 0, -20]} intensity={1} />
         <pointLight position={[0, -10, 0]} intensity={1} />
+
+
+
+
+        <group>
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -5, 0]}>
+            <planeBufferGeometry attach="geometry" args={[100,100]} />
+            <meshStandardMaterial attach="material" color="gray" />
+          </mesh>
+        </group>
+
+
+
+
         <SpinningBox args={[3, 5, 2]} position={[-2, 1, -5]} color="#ef4649" />
         <SpinningBox args={[5, 2, 3]} position={[6, -2, -15]} color="#f5c364" />
         <SpinningBox args={[2, 2, 1]} position={[0, 3, 0]} color="#0076cb" />
