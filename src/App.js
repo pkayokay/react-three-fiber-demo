@@ -2,10 +2,14 @@ import { Canvas } from '@react-three/fiber';
 
 function App() {
   return (
-    <div>
+    <>
       <Canvas>
+        <mesh>
+          <boxBufferGeometry attach="geometry" args={[1,1,1]} />
+          <meshStandardMaterial attach="material" />
+        </mesh>
       </Canvas>
-    </div>
+    </>
   );
 }
 
