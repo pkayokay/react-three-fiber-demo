@@ -1,8 +1,11 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { softShadows, MeshWobbleMaterial, OrbitControls } from '@react-three/drei';
 
 softShadows();
+
+const randomNumber = () => Math.floor(Math.random() * (7 - -3 + 1)) + -3;
+const colors = ["#ef4649", "#f5c364", "#0076cb", "#00b485", "#2e3042", "#bdbdbd"];
 
 function SpinningBox({ args, color, factor, position, speed }) {
   const mesh = useRef(null);
@@ -15,10 +18,28 @@ function SpinningBox({ args, color, factor, position, speed }) {
   )
 }
 
-
 function App() {
+  const [boxes, setBoxes] = useState([]);
+
+  const addBox = () => {
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      const box = (
+      <SpinningBox
+        args={[randomNumber(), randomNumber(), randomNumber()]}
+        position={[randomNumber(), randomNumber(), randomNumber()]}
+        color={randomColor}
+        speed={1}
+        factor={0.5}
+      />
+    )
+    setBoxes(boxes.concat(box))
+  }
+
   return (
     <>
+      <button style={{ margin: '0.5rem'}} onClick={() => addBox()}>
+        Add
+      </button>
       <Canvas
         shadows
         colormanagement="true"
@@ -53,6 +74,7 @@ function App() {
         <SpinningBox args={[1, 2, 3]} position={[5, 3, 1]} color="#00b485" speed={1} factor={0.5} />
         <SpinningBox args={[2, 2, 4]} position={[4, 1, -2]} color="#2e3042" speed={1} factor={0.5} />
         <SpinningBox args={[3, 2, 2]} position={[6, 0, 3]} color="#bdbdbd" speed={1} factor={0.5} />
+        {boxes}
         <OrbitControls />
       </Canvas>
     </>
