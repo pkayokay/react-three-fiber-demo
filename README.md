@@ -45,7 +45,7 @@ The `<Canvas />` component sets up the **Scene** and **Camera**
 ### Code Samples (Three.js vs React-Three-Fiber)
 
 ```jsx
-React-Three-Fiber
+# React-Three-Fiber
 <Canvas>
   <mesh>
     <boxGeometry />
