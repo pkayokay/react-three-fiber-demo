@@ -20,10 +20,11 @@ function SpinningBox({ args, color, factor, position, speed }) {
 
 function App() {
   const [boxes, setBoxes] = useState([]);
+  const [boxCount, setBoxCount] = useState(1);
 
-  const addBox = (count = 1) => {
+  const addBox = () => {
     const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
-    const box = Array(count).fill().map((x, i) => i + 1).map(() => (
+    const box = Array(boxCount).fill().map((x, i) => i + 1).map(() => (
       <SpinningBox
         key={Math.random()}
         args={[randomNumber(10, -10), randomNumber(10, -10), randomNumber(10, -10)]}
@@ -39,11 +40,9 @@ function App() {
   return (
     <>
       <div id="buttons">
-        <button style={{ margin: '0.5rem'}} onClick={() => addBox()}>
-          Add Box
-        </button>
-        <button style={{ margin: '0.5rem' }} onClick={() => addBox(100)}>
-          Do not press!
+        <input type="number" onChange={(e) => setBoxCount(e.target.value <= 0 ? 1 : parseInt(e.target.value))} value={boxCount} step="1" />
+        <button onClick={() => addBox()}>
+          Add Box{boxCount > 1 ? 'es' : ''}
         </button>
       </div>
       <Canvas
