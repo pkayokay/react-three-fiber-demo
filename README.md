@@ -32,8 +32,12 @@ The `<Canvas />` component sets up the **Scene** and **Camera**
 2. Add a mesh component
     1. Basic object, it holds geometry and material to represent a 3d Shape.
     2. To see it we add a box and standard material
-- Code Samples
+3. Add lights
+    1. Simple, just adds lights
+    2. Can configure element options with props.
 
+
+### Code Samples (Three.js vs React-Three-Fiber)
     ```jsx
     React-Three-Fiber
     <Canvas>
@@ -65,8 +69,6 @@ The `<Canvas />` component sets up the **Scene** and **Camera**
     animate()
     ```
 
-    ### Syntax
-
     ```jsx
     # React-Three-Fiber
     <boxGeometry args={[2, 2, 2]} />
@@ -75,12 +77,7 @@ The `<Canvas />` component sets up the **Scene** and **Camera**
     new THREE.BoxGeometry(2, 2, 2)
     ```
 
-3. Add lights
-    1. Simple, just adds lights
-    2. Can configure element options with props.
-
-### Props
-
+### Props (basically object properties for each Three.js object
 - `args` height width and depth
 - When referring to position then refers to horizontal (x), vertical (y), 3D (z)
 - `useFrame` hook is used to rotate objects
