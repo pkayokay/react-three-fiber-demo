@@ -18,6 +18,7 @@ function App() {
     <>
       <Canvas colorManagement camera={{ position: [-5,2,10], fov: 60 }}>
         <ambientLight intensity={1} />
+        <directionalLight position={[10, 1, 1]} intensity={1} shadow-mapSize-width={1024} shadow-mapSize-height={1024} shadow-camera-far={50} shadow-camera-left={-10} shadow-camera-right={10} shadow-camera-top={10} shadow-camera-bottom={-10} />
         <pointLight position={[-10, 0, -20]} intensity={1} />
         <pointLight position={[0, -10, 0]} intensity={1} />
         <SpinningBox args={[3, 5, 2]} position={[-2, 1, -5]} color="#ef4649" />
