@@ -1,5 +1,10 @@
 ## React Three Fiber Demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d5d811f5-a454-45cb-8aa9-2ec6b96a3df0/deploy-status)](https://app.netlify.com/sites/react-three-fiver-demo/deploys)
+
+Live Demo https://react-three-fiver-demo.netlify.app/
+
+
 To display anything in three.js, we need:
 1. Scene
 2. Camera
