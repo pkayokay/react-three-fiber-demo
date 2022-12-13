@@ -5,7 +5,7 @@ function App() {
     <>
       <Canvas>
         <mesh>
-          <boxBufferGeometry attach="geometry" args={[1,1,1]} />
+          <circleBufferGeometry attach="geometry" args={[3,8]} />
           <meshStandardMaterial attach="material" />
         </mesh>
       </Canvas>
