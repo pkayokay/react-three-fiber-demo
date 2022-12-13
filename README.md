@@ -38,44 +38,43 @@ The `<Canvas />` component sets up the **Scene** and **Camera**
 
 
 ### Code Samples (Three.js vs React-Three-Fiber)
-    ```jsx
-    React-Three-Fiber
-    <Canvas>
-      <mesh>
-        <boxGeometry />
-        <meshStandardMaterial />
-      </mesh>
-    </Canvas>
 
-    # Three.js
-    const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
+```jsx
+React-Three-Fiber
+<Canvas>
+  <mesh>
+    <boxGeometry />
+    <meshStandardMaterial />
+  </mesh>
+</Canvas>
 
-    const renderer = new THREE.WebGLRenderer()
-    renderer.setSize(width, height)
-    document.querySelector('#canvas-container').appendChild(renderer.domElement)
+# Three.js
+const scene = new THREE.Scene()
+const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
 
-    const mesh = new THREE.Mesh()
-    mesh.geometry = new THREE.BoxGeometry()
-    mesh.material = new THREE.MeshStandardMaterial()
+const renderer = new THREE.WebGLRenderer()
+renderer.setSize(width, height)
+document.querySelector('#canvas-container').appendChild(renderer.domElement)
 
-    scene.add(mesh)
+const mesh = new THREE.Mesh()
+mesh.geometry = new THREE.BoxGeometry()
+mesh.material = new THREE.MeshStandardMaterial()
 
-    function animate() {
-      requestAnimationFrame(animate)
-      renderer.render(scene, camera)
-    }
+scene.add(mesh)
 
-    animate()
-    ```
+function animate() {
+  requestAnimationFrame(animate)
+  renderer.render(scene, camera)
+}
 
-    ```jsx
-    # React-Three-Fiber
-    <boxGeometry args={[2, 2, 2]} />
+animate()
 
-    # Three.js
-    new THREE.BoxGeometry(2, 2, 2)
-    ```
+# React-Three-Fiber
+<boxGeometry args={[2, 2, 2]} />
+
+# Three.js
+new THREE.BoxGeometry(2, 2, 2)
+```
 
 ### Props (basically object properties for each Three.js object
 - `args` height width and depth
