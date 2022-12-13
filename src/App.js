@@ -4,7 +4,7 @@ import { softShadows, MeshWobbleMaterial, OrbitControls } from '@react-three/dre
 
 softShadows();
 
-const randomNumber = () => Math.floor(Math.random() * (7 - -3 + 1)) + -3;
+const randomNumber = (max = 40, min = -40) => Math.floor(Math.random() * (max - min + 1)) + min;
 const colors = ["#ef4649", "#f5c364", "#0076cb", "#00b485", "#2e3042", "#bdbdbd"];
 
 function SpinningBox({ args, color, factor, position, speed }) {
@@ -21,25 +21,31 @@ function SpinningBox({ args, color, factor, position, speed }) {
 function App() {
   const [boxes, setBoxes] = useState([]);
 
-  const addBox = () => {
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      const box = (
+  const addBox = (count = 1) => {
+    const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
+    const box = Array(count).fill().map((x, i) => i + 1).map(() => (
       <SpinningBox
-        args={[randomNumber(), randomNumber(), randomNumber()]}
+        key={Math.random()}
+        args={[randomNumber(10, -10), randomNumber(10, -10), randomNumber(10, -10)]}
         position={[randomNumber(), randomNumber(), randomNumber()]}
-        color={randomColor}
+        color={randomColor()}
         speed={1}
         factor={0.5}
       />
-    )
+    ))
     setBoxes(boxes.concat(box))
   }
 
   return (
     <>
-      <button style={{ margin: '0.5rem'}} onClick={() => addBox()}>
-        Add
-      </button>
+      <div id="buttons">
+        <button style={{ margin: '0.5rem'}} onClick={() => addBox()}>
+          Add Box
+        </button>
+        <button style={{ margin: '0.5rem' }} onClick={() => addBox(100)}>
+          Do not press!
+        </button>
+      </div>
       <Canvas
         shadows
         colormanagement="true"
@@ -69,7 +75,7 @@ function App() {
         </group>
 
         <SpinningBox args={[3, 5, 2]} position={[-2, 1, -5]} color="#ef4649" speed={1} factor={0.5} />
-        <SpinningBox args={[5, 2, 3]} position={[6, -2, -15]} color="#f5c364" speed={1} factor={0.5} />
+        <SpinningBox args={[5, 2, 3]} position={[6, 0, -8]} color="#f5c364" speed={1} factor={0.5} />
         <SpinningBox args={[2, 2, 1]} position={[0, 3, 0]} color="#0076cb" speed={1} factor={0.5} />
         <SpinningBox args={[1, 2, 3]} position={[5, 3, 1]} color="#00b485" speed={1} factor={0.5} />
         <SpinningBox args={[2, 2, 4]} position={[4, 1, -2]} color="#2e3042" speed={1} factor={0.5} />

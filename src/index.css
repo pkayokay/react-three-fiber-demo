@@ -20,3 +20,10 @@ body {
 #root {
   overflow: visible;
 }
+
+#buttons {
+  position: fixed;
+  left: 10px;
+  top: 5px;
+  z-index: 9999;
+}
