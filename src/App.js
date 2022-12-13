@@ -3,7 +3,12 @@ import { Canvas } from '@react-three/fiber';
 function App() {
   return (
     <div>
-      <Canvas />
+      <Canvas>
+        <mesh>
+          <boxGeometry />
+          <meshStandardMaterial />
+        </mesh>
+      </Canvas>
     </div>
   );
 }
